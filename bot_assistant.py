@@ -1,3 +1,4 @@
+import msvcrt
 from expert_system import FitnessExpertSystem
 
 # Цветовые ANSI коды для консоли
@@ -94,3 +95,14 @@ def main():
 
 if __name__ == "__main__":
     main()
+    print("\n" + "=" * 50)
+    print("Нажмите ESC для выхода из программы...")
+
+    while True:
+        # Проверяем, нажата ли клавиша
+        if msvcrt.kbhit():
+            # Читаем символ нажатой клавиши
+            key = msvcrt.getch()
+            # Код клавиши Esc — b'\x1b'
+            if key == b'\x1b':
+                break
